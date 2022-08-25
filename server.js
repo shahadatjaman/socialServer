@@ -32,7 +32,7 @@ const startServer = async () => {
   app.use(cors());
   app.use(express.json());
   app.use("/", require("./router/index"));
-  app.use("/images", express.static("files"));
+  app.use("/images", express.static("public"));
 
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

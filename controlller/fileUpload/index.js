@@ -2,7 +2,7 @@ var path = require("path");
 
 const multer = require("multer");
 
-const UPLAOD_DIR = __dirname + `../../../PUBLIC/IMG`;
+const UPLAOD_DIR = __dirname + `../../../public`;
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
