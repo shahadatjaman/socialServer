@@ -34,5 +34,5 @@ router.post("/notification/", notications);
 router.get("/getnotifications/:userId", getNotifications);
 router.get("/getisread/:userId", getIsRead);
 router.post("/fileupload/:userId", upload.single("avatar"), avatar);
-router.post("/createpost", authenticate, createPost);
+router.post("/createpost", authenticate, upload.single("avatar"), createPost);
 module.exports = router;

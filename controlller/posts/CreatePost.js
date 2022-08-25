@@ -5,19 +5,20 @@ const postValidaion = require("../../validator/post");
 module.exports = {
   createPost(req, res) {
     const { id, firstName, lastName, username } = req.user;
-    const { body, imgURL } = req.body;
+    const { body } = req.body;
 
-    if (body || imgURL) {
+    if (body || req.fileName) {
       const newPost = new Post({
         userId: id,
         firstName,
         lastName,
         username,
         body,
-        postType: "imagepost",
+        postType: "normal",
         comments: [],
         likes: [],
-        image: imgURL,
+        image:
+          typeof req.fileName === "undefined" ? "" : `images/${req.fileName}`,
         createdAt: new Date().toISOString(),
       });
 
