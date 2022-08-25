@@ -20,6 +20,10 @@ const upload = require("../controlller/fileUpload/");
 
 const { avatar } = require("../controlller/fileUpload/avatar");
 
+const { createPost } = require("../controlller/posts/CreatePost");
+
+const authenticate = require("../authentication/authenticate");
+
 router.post("/verify", verifyAccount);
 router.post("/activeUser", userActive);
 router.post("/forgotpassword", forgotPassword);
@@ -30,4 +34,5 @@ router.post("/notification/", notications);
 router.get("/getnotifications/:userId", getNotifications);
 router.get("/getisread/:userId", getIsRead);
 router.post("/fileupload/:userId", upload.single("avatar"), avatar);
+router.post("/createpost", authenticate, createPost);
 module.exports = router;

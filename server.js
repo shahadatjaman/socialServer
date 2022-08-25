@@ -1,7 +1,7 @@
 const { ApolloServer } = require("apollo-server-express");
 
 const express = require("express");
-
+const passport = require("passport");
 const cors = require("cors");
 
 const { createServer } = require("http");
@@ -30,8 +30,14 @@ const startServer = async () => {
   await apolloServer.start();
 
   app.use(cors());
+
   app.use(express.json());
+
+  app.use(passport.initialize());
+  require("./authentication/passport")(passport);
+
   app.use("/", require("./router/index"));
+
   app.use("/images", express.static("public"));
 
   if (process.env.NODE_ENV === "production") {

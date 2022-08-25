@@ -22,7 +22,6 @@ const postSchema = new Schema({
   body: {
     type: String,
     trim: true,
-    required: true,
   },
 
   comments: [
@@ -65,7 +64,6 @@ const postSchema = new Schema({
   readTime: {
     type: String,
     trim: true,
-    required: true,
   },
   createdAt: String,
 });

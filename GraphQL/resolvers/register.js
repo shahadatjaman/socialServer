@@ -90,7 +90,7 @@ module.exports = {
           email,
           isVerified: user.isVerified,
         },
-        SECRET_KEY,
+        process.env.SECRET_KEY,
         { expiresIn: "2h" }
       );
 
